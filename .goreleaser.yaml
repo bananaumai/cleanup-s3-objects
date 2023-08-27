@@ -39,7 +39,19 @@ changelog:
       - '^docs:'
       - '^test:'
 
-# The lines beneath this are called `modelines`. See `:help modeline`
-# Feel free to remove those if you don't want/use them.
-# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
-# vim: set ts=2 sw=2 tw=0 fo=cnqoj
+brews:
+  -
+    name: homebrew-cleanup-s3-objects
+    url_template: "https://github.com/bananaumai/cleanup-s3-objects/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
+    download_strategy: CurlDownloadStrategy
+    commit_author:
+      name: bananaumai
+      email: banana.umai@gmail.com
+    commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
+    folder: Formula
+    homepage: 'https://github.com/bananaumai/cleanup-s3-objects'
+    description: 'CLI tool to delete all versions of objects and delete markers from a S3 bucket'
+    license: MIT
+    repository:
+      owner: bananaumai
+      name: cleanup-s3-objects
